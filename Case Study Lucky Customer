@@ -1,0 +1,55 @@
+package com.intellect;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class LuckeyCustomer {
+
+	public static void main(String[] args) {
+int date;
+int billNumber;
+int array1[]=new int[3];
+int array2[]=new int[2];
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter date");
+date=sc.nextInt();
+int tempdate=date;
+System.out.println("Enter 3 digit billNumber(billnumber should be 3 digit only)");
+billNumber=sc.nextInt();
+int tempbillnumber=billNumber;
+int i=0;
+int l=0;
+while(billNumber>0){
+	int lastdigit=billNumber%10;
+	System.out.println(lastdigit);
+	array1[i]=lastdigit;
+	i++;
+	billNumber=billNumber/10;
+}
+while(date>0){
+	int lastdigitdate=date%10;
+	array2[l]=lastdigitdate;
+	l++;
+	date=date/10;
+} 
+if(tempdate<10){
+	array2[1]=array1[1];
+}
+String sDate1=Arrays.toString(array2);
+String sBillNumber=Arrays.toString(array1).substring(0, sDate1.length()-1);
+System.out.println(sDate1);
+System.out.println(sBillNumber);
+if(sDate1.contains(sBillNumber)){
+   if(tempbillnumber%tempdate==0){
+	System.out.println("Luckey Custome");
+	}
+   else{
+		System.out.println("UnLuckey Custome");
+   }
+}
+else{
+	System.out.println("UnLuckey Custome");
+}
+}
+}
+	
